@@ -16,6 +16,8 @@ public class secondActivity extends AppCompatActivity {
     private SeekBar seekBaredad;
     private TextView textViewedad;
     private View btn2;
+    private TextView textonombre;
+    private String prueba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,10 @@ public class secondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         btn2 = (Button) findViewById(R.id.button3);
+        textonombre = (TextView) findViewById(R.id.textView);
+        prueba = getIntent().getStringExtra("nombre");
+
+        Toast.makeText(secondActivity.this,prueba,Toast.LENGTH_SHORT).show();
 
         btn2.setOnClickListener(new View.OnClickListener(){
             @Override

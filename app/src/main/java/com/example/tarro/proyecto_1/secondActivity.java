@@ -2,6 +2,7 @@ package com.example.tarro.proyecto_1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -16,8 +17,9 @@ public class secondActivity extends AppCompatActivity {
     private SeekBar seekBaredad;
     private TextView textViewedad;
     private View btn2;
-    private TextView textonombre;
     private String prueba;
+    private String edad;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +27,17 @@ public class secondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         btn2 = (Button) findViewById(R.id.button3);
-        textonombre = (TextView) findViewById(R.id.textView);
         prueba = getIntent().getStringExtra("nombre");
 
-        Toast.makeText(secondActivity.this,prueba,Toast.LENGTH_SHORT).show();
+
+
 
         btn2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(secondActivity.this, ThirdActivity.class);
+                intent.putExtra("nombre",prueba);
+                intent.putExtra("edad",edad);
                 startActivity(intent);
             }
         });
@@ -41,7 +45,7 @@ public class secondActivity extends AppCompatActivity {
         seekBaredad = (SeekBar) findViewById(R.id.seekBarEdad);
         textViewedad = (TextView) findViewById(R.id.textViewEdad);
 
-        textViewedad.setText("Covered: " + seekBaredad.getProgress() + "/" + seekBaredad.getMax());
+        textViewedad.setText("Edad: " + seekBaredad.getProgress());
 
         seekBaredad.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             int progress = 0;
@@ -49,18 +53,19 @@ public class secondActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
-                Toast.makeText(getApplicationContext(), "Changing seekbar's progress", Toast.LENGTH_SHORT).show();
+                edad = String.valueOf(progress);
+                //Toast.makeText(getApplicationContext(), "Changing seekbar's progress", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(getApplicationContext(), "Started tracking seekbar", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Started tracking seekbar", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                textViewedad.setText("Covered: " + progress + "/" + seekBar.getMax());
-                Toast.makeText(getApplicationContext(), "Stopped tracking seekbar", Toast.LENGTH_SHORT).show();
+                textViewedad.setText("Edad: " + progress);
+                //Toast.makeText(getApplicationContext(), "Stopped tracking seekbar", Toast.LENGTH_SHORT).show();
             }
         });
                 seekBaredad = (SeekBar) findViewById(R.id.seekBarEdad);

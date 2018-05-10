@@ -6,10 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ThirdActivity extends AppCompatActivity {
 
     private View btnhome;
+    private String prueba2;
+    private String edad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +21,11 @@ public class ThirdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_third);
 
         btnhome = (ImageButton) findViewById(R.id.imageButtonhome);
+
+        prueba2 = getIntent().getStringExtra("nombre");
+        edad = getIntent().getStringExtra("edad");
+
+        Toast.makeText(ThirdActivity.this,"el nombre es: " + prueba2 + "y tu edad" + edad,Toast.LENGTH_SHORT).show();
 
         btnhome.setOnClickListener(new View.OnClickListener(){
             @Override

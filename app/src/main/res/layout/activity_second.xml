@@ -6,29 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".secondActivity">
 
-    <RadioButton
-        android:id="@+id/radioButtonSaludar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Saludar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.187" />
-
-    <RadioButton
-        android:id="@+id/radioButtonDespedir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Despedir"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.392" />
-
     <SeekBar
         android:id="@+id/seekBarEdad"
         android:layout_width="239dp"
@@ -63,5 +40,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.989" />
+
+    <RadioGroup
+        android:layout_width="113dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09">
+
+        <RadioButton
+            android:id="@+id/radioButtonSaludar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Saludar" />
+
+        <RadioButton
+            android:id="@+id/radioButtonDespedir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Despedir" />
+    </RadioGroup>
 
 </android.support.constraint.ConstraintLayout>
